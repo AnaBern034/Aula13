@@ -25,24 +25,61 @@ public class Notas {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
         List<Double> nota = new ArrayList<>();
-        double[] notas =new double[3];
-       System.out.println("Digite o numero de identifação");
-       int numero;
-       numero = ler.nextInt();
-       int nmr;
+        double[] notas = new double[3];
+        System.out.println("Digite o numero de identifação");
+        int numero;
+        numero = ler.nextInt();
+
         System.out.println("Digite o seu nome");
         String nome = ler.next();
 
         System.out.println("Digite as notas: ");
-        for (int i = 0; i < 3 ; i++) {
+        for (int i = 0; i < 3; i++) {
 
-            notas[i]= ler.nextDouble();
+            notas[i] = ler.nextDouble();
 
         }
+        System.out.println("Digite a media dos exercicio");
+        double media = ler.nextDouble();
+
+        Double mediaDeAproveitamento = (notas[0] + notas[1] * 2 + notas[2] * 3 + media) / 7;
+        System.out.println("Numero de identificação do aluno " + numero);
+        System.out.println("Nome do aluno: " + nome);
+        System.out.println("Notas: " + notas[0] + "," + notas[1] + "," + notas[2]);
+        System.out.println("Media dos exercicios: " + media);
+        System.out.println("Media de aproveitamento: " + mediaDeAproveitamento);
 
 
+        /*if (mediaDeAproveitamento >= 90) {
+            return "A";
+        } else if (mediaDeAproveitamento >= 76) {
+            return "B";
+        } else if (mediaDeAproveitamento >= 60) {
+            return "C";
+        } else if (mediaDeAproveitamento >= 40) {
+            return "D";
+        } else {
+            return "E";
+        }*/
 
+          String resultado = validacao(mediaDeAproveitamento);
 
-
+         if (resultado.equals("A")  || resultado.equals("B") || resultado.equals("B") ){
+             System.out.println("Aprovado");
+         }else {
+             System.out.println("Reprovado");
+         }
     }
-}
+    public static String validacao(double mediaDeAproveitamento){
+
+        if (mediaDeAproveitamento >= 90) {
+            return "A";
+        } else if (mediaDeAproveitamento >= 76) {
+            return "B";
+        } else if (mediaDeAproveitamento >= 60) {
+            return "C";
+        } else if (mediaDeAproveitamento >= 40) {
+            return "D";
+        } return "E";
+        }
+    }
