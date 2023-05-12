@@ -21,8 +21,5 @@ public class Salario {
             alteração = salarioAtual[i] +reajuste;
             System.out.println("Os valores reajustados foram: "+alteração);
         }
-
-
-
     }
 }
